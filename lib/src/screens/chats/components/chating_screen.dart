@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icq_chat_clone/src/icq_icon.dart';
 
 class ChattingScreen extends StatefulWidget {
   const ChattingScreen({super.key});
@@ -10,14 +11,76 @@ class ChattingScreen extends StatefulWidget {
 class _ChattingScreenState extends State<ChattingScreen> {
   final List<String> _messages = [];
   final TextEditingController _textController = TextEditingController();
+  int hourDate = DateTime.now().hour;
+  int minDate = DateTime.now().minute;
+
+  // String time = DateFormat('hh:mm:ss').format(newDate);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios)),
         backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text('Chat'),
+        iconTheme: const IconThemeData(color: Colors.blue),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                const SizedBox(
+                  height: 42,
+                  width: 42,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage(
+                      "assets/images/takyk.jpg",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Takyk tilsimaty',
+                        style: TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        'Seen  22:30',
+                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: const [
+                Icon(
+                  Icons.search,
+                  size: 26,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Icon(
+                    IcqIcons.phone,
+                    size: 22,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
       body: Column(
         children: <Widget>[
@@ -27,32 +90,87 @@ class _ChattingScreenState extends State<ChattingScreen> {
               itemBuilder: (BuildContext context, int index) {
                 final message = _messages[index];
                 return ListTile(
-                  title: Text(message),
+                  title: Padding(
+                    padding: const EdgeInsets.only(right: 50),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width - 140,
+                                    child: Text(message)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      '$hourDate:$minDate',
+                                      style: const TextStyle(
+                                          color: Colors.grey, fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
+                  ),
                 );
               },
             ),
           ),
-          const Divider(),
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
-            ),
+          // const Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: TextField(
-                    controller: _textController,
-                    decoration: const InputDecoration(
-                      hintText: 'Type a message',
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(16.0),
-                    ),
-                    onSubmitted: _handleSubmitted,
-                  ),
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  child: Icon(Icons.add_circle_outline_outlined),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () => _handleSubmitted(_textController.text),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Theme.of(context).cardColor,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width - 95,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Expanded(
+                            child: TextField(
+                              minLines: 1,
+                              controller: _textController,
+                              decoration: const InputDecoration(
+                                hintText: 'Type a message',
+                                border: InputBorder.none,
+                              ),
+                              onSubmitted: _handleSubmitted,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: InkWell(
+                          onTap: () => _handleSubmitted(_textController.text),
+                          child: const SizedBox(
+                            width: 20,
+                            child: Icon(Icons.send),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
