@@ -70,7 +70,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             ],
           )),
       bottomNavigationBar: SizedBox(
-        height: 70,
+        height: 60,
         child: Row(
           children: [
             Expanded(

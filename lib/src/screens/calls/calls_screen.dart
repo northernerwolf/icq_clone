@@ -75,7 +75,7 @@ class _CallsScreenState extends State<CallsScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     title: SizedBox(
-                      height: 40,
+                      height: 42,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -140,7 +140,7 @@ class _CallsScreenState extends State<CallsScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     title: SizedBox(
-                      height: 40,
+                      height: 42,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
