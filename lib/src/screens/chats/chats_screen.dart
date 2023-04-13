@@ -51,7 +51,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                             builder: (context) => const ChattingScreen()));
                       },
                       child: SizedBox(
-                        height: 62,
+                        height: 63,
                         child: Row(
                           children: [
                             const SizedBox(

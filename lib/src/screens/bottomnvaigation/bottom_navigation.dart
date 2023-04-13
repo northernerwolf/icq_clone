@@ -50,9 +50,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
                                   : '',
                   style: const TextStyle(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 20,
                       fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(

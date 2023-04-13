@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:icq_chat_clone/src/screens/settings/screens/notfication_screen.dart';
+import 'package:icq_chat_clone/src/screens/settings/screens/privacy_screen.dart';
+import 'package:icq_chat_clone/src/screens/settings/screens/themes_screen.dart';
 
 import '../../icq_icon.dart';
+import '../chats/components/chating_screen.dart';
+import 'screens/common_screen.dart';
+import 'screens/stickers_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -84,36 +90,42 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 10,
               color: const Color.fromARGB(255, 241, 240, 240),
             ),
-            Container(
-              height: 60,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 248, 242, 229),
-                          shape: BoxShape.circle),
-                      child: const Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            IcqIcons.star,
-                            size: 22,
-                            color: Colors.amber,
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ChattingScreen()));
+              },
+              child: Container(
+                height: 60,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 248, 242, 229),
+                            shape: BoxShape.circle),
+                        child: const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(
+                              IcqIcons.star,
+                              size: 22,
+                              color: Colors.amber,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 15),
-                      child: Text(
-                        'Favorites',
-                        style: TextStyle(color: Colors.black, fontSize: 16),
-                      ),
-                    )
-                  ],
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Text(
+                          'Favorites',
+                          style: TextStyle(color: Colors.black, fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -133,151 +145,182 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 248, 235, 234),
-                                  shape: BoxShape.circle),
-                              child: const Center(
-                                child: Padding(
-                                  padding: EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    IcqIcons.volume,
-                                    size: 20,
-                                    color: Colors.red,
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const NotificationScreen()));
+                          },
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                    color: Color.fromARGB(255, 248, 235, 234),
+                                    shape: BoxShape.circle),
+                                child: const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Icon(
+                                      IcqIcons.volume,
+                                      size: 20,
+                                      color: Colors.red,
+                                    ),
                                   ),
                                 ),
                               ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: Text(
+                                  'Notifications',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const PrivacyScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 248, 235, 250),
+                                      shape: BoxShape.circle),
+                                  child: const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.lock_outline,
+                                        size: 20,
+                                        color: Colors.purple,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Text(
+                                    'Privacy',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16),
+                                  ),
+                                )
+                              ],
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 15),
-                              child: Text(
-                                'Notifications',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 16),
-                              ),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 248, 235, 250),
-                                    shape: BoxShape.circle),
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: Icon(
-                                      Icons.lock_outline,
-                                      size: 20,
-                                      color: Colors.purple,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  'Privacy',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 16),
-                                ),
-                              )
-                            ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 235, 241, 247),
-                                    shape: BoxShape.circle),
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: Icon(
-                                      Icons.draw_outlined,
-                                      size: 20,
-                                      color: Colors.blue,
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ThemesScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 235, 241, 247),
+                                      shape: BoxShape.circle),
+                                  child: const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.draw_outlined,
+                                        size: 20,
+                                        color: Colors.blue,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  'Themes',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 16),
-                                ),
-                              )
-                            ],
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Text(
+                                    'Themes',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 248, 242, 232),
-                                    shape: BoxShape.circle),
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: Icon(
-                                      Icons.pan_tool,
-                                      size: 20,
-                                      color: Colors.orange,
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const StickersScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 248, 242, 232),
+                                      shape: BoxShape.circle),
+                                  child: const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.pan_tool,
+                                        size: 20,
+                                        color: Colors.orange,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  'Stickers',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 16),
-                                ),
-                              )
-                            ],
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Text(
+                                    'Stickers',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, bottom: 15),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 233, 248, 233),
-                                    shape: BoxShape.circle),
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: Icon(
-                                      Icons.admin_panel_settings_outlined,
-                                      size: 20,
-                                      color: Colors.green,
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const CommonScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20, bottom: 15),
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 233, 248, 233),
+                                      shape: BoxShape.circle),
+                                  child: const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.admin_panel_settings_outlined,
+                                        size: 20,
+                                        color: Colors.green,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  'Common',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 16),
-                                ),
-                              )
-                            ],
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Text(
+                                    'Common',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],
