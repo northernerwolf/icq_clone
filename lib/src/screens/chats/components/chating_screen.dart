@@ -105,7 +105,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
                               children: [
                                 SizedBox(
                                     width:
-                                        MediaQuery.of(context).size.width - 140,
+                                        MediaQuery.of(context).size.width - 145,
                                     child: Text(message)),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -146,16 +146,14 @@ class _ChattingScreenState extends State<ChattingScreen> {
                         width: MediaQuery.of(context).size.width - 95,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 15),
-                          child: Expanded(
-                            child: TextField(
-                              minLines: 1,
-                              controller: _textController,
-                              decoration: const InputDecoration(
-                                hintText: 'Type a message',
-                                border: InputBorder.none,
-                              ),
-                              onSubmitted: _handleSubmitted,
+                          child: TextField(
+                            minLines: 1,
+                            controller: _textController,
+                            decoration: const InputDecoration(
+                              hintText: 'Type a message',
+                              border: InputBorder.none,
                             ),
+                            onSubmitted: _handleSubmitted,
                           ),
                         ),
                       ),

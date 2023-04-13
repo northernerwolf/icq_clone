@@ -6,7 +6,9 @@ import 'package:icq_chat_clone/src/screens/settings/screens/themes_screen.dart';
 import '../../icq_icon.dart';
 import '../chats/components/chating_screen.dart';
 import 'screens/common_screen.dart';
+import 'screens/report_problem.dart';
 import 'screens/stickers_screen.dart';
+import 'package:share/share.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -335,51 +337,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             Container(
               color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15, top: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 248, 235, 240),
-                              shape: BoxShape.circle),
-                          child: const Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.person_add_alt_outlined,
-                                size: 22,
-                                color: Colors.pinkAccent,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 15),
-                          child: Text(
-                            'Invite to ICQ',
-                            style: TextStyle(color: Colors.black, fontSize: 16),
-                          ),
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Row(
+              child: InkWell(
+                onTap: () {
+                  Share.share('Check out this cool app I found!');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, top: 10),
+                  child: Column(
+                    children: [
+                      Row(
                         children: [
                           Container(
                             decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 237, 242, 252),
+                                color: Color.fromARGB(255, 248, 235, 240),
                                 shape: BoxShape.circle),
                             child: const Center(
                               child: Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Icon(
-                                  Icons.message_outlined,
+                                  Icons.person_add_alt_outlined,
                                   size: 22,
-                                  color: Colors.blueAccent,
+                                  color: Colors.pinkAccent,
                                 ),
                               ),
                             ),
@@ -387,15 +365,51 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           const Padding(
                             padding: EdgeInsets.only(left: 15),
                             child: Text(
-                              'Report a problem',
+                              'Invite to ICQ',
                               style:
                                   TextStyle(color: Colors.black, fontSize: 16),
                             ),
                           )
                         ],
                       ),
-                    ),
-                  ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ReportProblem()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                    color: Color.fromARGB(255, 237, 242, 252),
+                                    shape: BoxShape.circle),
+                                child: const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.message_outlined,
+                                      size: 22,
+                                      color: Colors.blueAccent,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: Text(
+                                  'Report a problem',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
