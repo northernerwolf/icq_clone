@@ -99,7 +99,7 @@ class _CallsScreenState extends State<CallsScreen> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: const [
                                     Text(
-                                      'Takyk tilsimaty',
+                                      'Jhon',
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 16),
                                     ),
@@ -158,7 +158,7 @@ class _CallsScreenState extends State<CallsScreen> {
                                   width: 42,
                                   child: CircleAvatar(
                                     backgroundImage: AssetImage(
-                                      "assets/images/takyk.jpg",
+                                      "assets/images/avatar.png",
                                     ),
                                   ),
                                 ),
@@ -170,7 +170,7 @@ class _CallsScreenState extends State<CallsScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: const [
                                       Text(
-                                        'Takyk tilsimaty',
+                                        'Jhon',
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 16),
                                       ),

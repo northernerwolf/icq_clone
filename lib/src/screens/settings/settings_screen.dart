@@ -40,7 +40,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         width: 62,
                         child: CircleAvatar(
                           backgroundImage: AssetImage(
-                            "assets/images/takyk.jpg",
+                            "assets/images/avatar.png",
                           ),
                         ),
                       ),
@@ -53,7 +53,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             const Text(
-                              'Takyk tilsimaty',
+                              'Jhon',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,

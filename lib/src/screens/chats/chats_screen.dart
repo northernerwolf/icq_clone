@@ -59,7 +59,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                               width: 62,
                               child: CircleAvatar(
                                 backgroundImage: AssetImage(
-                                  "assets/images/takyk.jpg",
+                                  "assets/images/avatar.png",
                                 ),
                               ),
                             ),
@@ -70,7 +70,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   const Text(
-                                    'Takyk tilsimaty',
+                                    'Jhon',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
@@ -84,7 +84,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                                         MediaQuery.of(context).size.width - 110,
                                     child: const Text(
                                       maxLines: 3,
-                                      'Hormatly kardeshler! Satlyk Monoblok bar achylmadyk, paket. Core i5',
+                                      'Hormatly agzalar! Satlyk Monoblok bar achylmadyk, paket. Core i5',
                                       style: TextStyle(
                                           color: Colors.grey, fontSize: 14),
                                     ),

@@ -37,7 +37,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
                   width: 42,
                   child: CircleAvatar(
                     backgroundImage: AssetImage(
-                      "assets/images/takyk.jpg",
+                      "assets/images/avatar.png",
                     ),
                   ),
                 ),
@@ -48,7 +48,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
                       Text(
-                        'Takyk tilsimaty',
+                        'Jhon',
                         style: TextStyle(color: Colors.black, fontSize: 16),
                       ),
                       SizedBox(

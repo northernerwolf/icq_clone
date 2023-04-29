@@ -59,7 +59,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
                               width: 42,
                               child: CircleAvatar(
                                 backgroundImage: AssetImage(
-                                  "assets/images/takyk.jpg",
+                                  "assets/images/avatar.png",
                                 ),
                               ),
                             ),
@@ -70,7 +70,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: const [
                                   Text(
-                                    'Takyk tilsimaty',
+                                    'Jhon',
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 16),
                                   ),
